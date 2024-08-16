@@ -1,0 +1,14 @@
+cp -r /materijali/atmusers/ .
+cp /materijali/user_pin.csv .
+
+#!/bin/bash
+while read line; do
+	user=$( echo $line | cut -d',' -f1)
+	pin=$( echo $line | cut -d',' -f2)
+	if [[ -d atmusers/$user ]]; then
+		echo „Direktorij za korisnika“ $user „vec postoji, pin je“ $pin
+	else
+		mkdir atmuser/$user
+		echo „Direktorij za korisnika“ $user „je napravljen, pin je“ $pin
+	fi
+done < user_pin.csv
