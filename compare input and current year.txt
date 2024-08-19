@@ -1,0 +1,19 @@
+#/bin/bash
+
+trenutna_godina=$(date +''%Y'')
+
+while true; do
+	echo ''Unesite godinu: ''
+	read unesena_godina
+
+	if [[ $unesena_godina -lt $trenutna_godina ]]; then
+	             echo ''Uneseni broj'' $unesena_godina ''je manji od trenutne godine''
+	             echo ''Uneseni broj'' $unesena_godina ''je manji od trenutne godine'' >> years
+	elif [[ $unesena_godina -gt $trenutna_godina ]]; then
+	             echo ''Uneseni broj'' $unesena_godina ''je manji od trenutne godine''
+	             echo ''Uneseni broj'' $unesena_godina ''je manji od trenutne godine'' >> years
+	elif [[ $unesena_godina -eq $trenutna_godina ]]; then
+	             echo ''Unijeli ste trenutnu god, program zavrsava''
+	             echo ''Unijeli ste trenutnu god, program zavrsava'' >> years
+	fi
+done
