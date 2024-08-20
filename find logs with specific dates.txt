@@ -1,0 +1,19 @@
+#!/bin/bash 
+
+echo "Unesite godinu (dvije znamenke): " 
+read godina 
+echo "Unesite mjesec (dvije znamenke): " 
+read mjesec 
+echo "Unesite dan (dvije znamenke): "
+ read dan
+
+broj_linija=0
+
+while read line; do
+	if [[  ''$line'' == *''$godina-$mjesec-$dan“* ]]; then
+		echo ''$line'' >> log_listing
+		broj_linija=$((broj_linija +1))
+	fi
+done < /materijali/bin2201.log
+
+echo ''Broj linija je:  $broj_linija''
